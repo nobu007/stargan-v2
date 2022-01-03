@@ -42,6 +42,8 @@ class CheckpointIO(object):
             module_dict = torch.load(fname)
         else:
             module_dict = torch.load(fname, map_location=torch.device('cpu'))
+        print("module_dict from=", fname)
+        print("module_dict=", module_dict.keys())
             
         for name, module in self.module_dict.items():
             if self.data_parallel:
